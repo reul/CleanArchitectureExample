@@ -7,14 +7,13 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
+import space.reul.cleanarchitectureexample.domain.model.Urls
 
-private typealias Urls = ArrayList<String>
 private const val API_URL: String = "https://shibe.online/api/"
 
 class ShibaService {
     private val okHttpClient = OkHttpClient()
         .newBuilder()
-//        .addInterceptor(RequestLoggingInterceptor())
 // add if needed
 //      .addInterceptor(AuthorizationInterceptor)
         .build()
@@ -27,7 +26,7 @@ class ShibaService {
 
     private val webApi = retrofit.create(WebApi::class.java)
 
-    suspend fun listUrls(): ArrayList<String> {
+    suspend fun listUrls(): Urls {
         val response = webApi.listUrls()
         return response.body() ?: arrayListOf()
     }

@@ -2,6 +2,7 @@ package space.reul.cleanarchitectureexample.app
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -19,7 +20,7 @@ class MainActivityViewModel : ViewModel() {
     fun onResume() {
         if (loadTask?.isActive == true) return
 
-        loadTask = viewModelScope.launch {
+        loadTask = viewModelScope.launch(Dispatchers.IO) {
             val shibas = shibaRepository.listShibas()
             shibaStateFlow.value = shibas
         }
