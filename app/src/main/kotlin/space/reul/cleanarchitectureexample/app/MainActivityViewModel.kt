@@ -16,19 +16,17 @@ class MainActivityViewModel : ViewModel() {
     private val shibaStateFlow: MutableStateFlow<Urls> = MutableStateFlow(arrayListOf())
     val shibaFlow: Flow<List<String>> = shibaStateFlow
 
-
     private var loadTask: Job? = null
 
     fun onResume() {
         if (loadTask?.isActive == true) return
 
-
-        loadTask = viewModelScope.launch() {
+        loadTask = viewModelScope.launch {
             val listShibas = newUseCase()
             val output = listShibas()
             shibaStateFlow.value = output
         }
     }
 
-    fun newUseCase() = ListShibas(Dispatchers.IO, shibaRepository)
+    private fun newUseCase() = ListShibas(Dispatchers.IO, shibaRepository)
 }

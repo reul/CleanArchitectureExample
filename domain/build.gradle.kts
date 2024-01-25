@@ -20,4 +20,13 @@ kotlin {
 
 dependencies {
     implementation(libs.kotlinx.coroutines.core)
+
+    testImplementation(kotlin("test"))
+    testImplementation(libs.mockk)
+    testImplementation(libs.kotlinx.coroutines.core)
+    testImplementation(libs.kotlinx.coroutines.test)
+}
+
+tasks.test {
+    useJUnitPlatform()
 }
