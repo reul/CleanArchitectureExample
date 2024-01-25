@@ -33,6 +33,6 @@ class ShibaService {
 
     private interface WebApi {
         @GET("shibes?urls=true&httpsUrls=true")
-        suspend fun listUrls(@Query("count") count: Int = 12): Response<Urls>
+        suspend fun listUrls(@Query("count") count: Int = 18): Response<Urls>
     }
 }
