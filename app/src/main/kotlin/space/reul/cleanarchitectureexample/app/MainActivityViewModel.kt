@@ -1,21 +1,26 @@
 package space.reul.cleanarchitectureexample.app
 
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
-import space.reul.cleanarchitectureexample.data.repository.ShibaRepositoryImpl
 import space.reul.cleanarchitectureexample.domain.model.Urls
 import space.reul.cleanarchitectureexample.domain.usecase.ListShibas
+import javax.inject.Inject
 
-class MainActivityViewModel : ViewModel() {
-    private val shibaRepository: ListShibas.ShibasRepository = ShibaRepositoryImpl()
+@HiltViewModel
+class MainActivityViewModel @Inject constructor(
+    private val shibaRepository: ListShibas.Repository,
+    private val savedStateHandle: SavedStateHandle
+) : ViewModel() {
+
     private val shibaStateFlow: MutableStateFlow<Urls> = MutableStateFlow(arrayListOf())
     val shibaFlow: Flow<List<String>> = shibaStateFlow
-
     private var loadTask: Job? = null
 
     fun onResume() {

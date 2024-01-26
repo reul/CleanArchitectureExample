@@ -7,19 +7,18 @@ import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import dagger.hilt.android.AndroidEntryPoint
 import space.reul.cleanarchitectureexample.app.ui.composables.ImageGrid
 import space.reul.cleanarchitectureexample.app.ui.theme.CleanArchitectureExampleTheme
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     private val viewModel: MainActivityViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
 
         setContent {
             CleanArchitectureExampleTheme {
@@ -41,4 +40,3 @@ class MainActivity : ComponentActivity() {
         viewModel.onResume()
     }
 }
-

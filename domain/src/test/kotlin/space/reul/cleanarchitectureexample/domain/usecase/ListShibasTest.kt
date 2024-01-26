@@ -10,7 +10,7 @@ import kotlin.test.Test
 
 class ListShibasTest {
     private lateinit var subject: ListShibas
-    private lateinit var repository: ListShibas.ShibasRepository
+    private lateinit var repository: ListShibas.Repository
 
     @BeforeTest
     fun setUp() {

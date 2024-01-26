@@ -6,13 +6,13 @@ import kotlin.coroutines.CoroutineContext
 
 class ListShibas(
     val backgroundContext: CoroutineContext,
-    val repository: ShibasRepository
+    val repository: Repository
 ) : UseCase<Urls> {
     override suspend operator fun invoke(): Urls = withContext(backgroundContext) {
         repository.listShibas()
     }
 
-    interface ShibasRepository {
+    interface Repository {
         suspend fun listShibas(): Urls
     }
 }

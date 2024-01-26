@@ -6,7 +6,7 @@ import space.reul.cleanarchitectureexample.domain.usecase.ListShibas
 
 class ShibaRepositoryImpl(
     private val webApi: ShibaService = ShibaService()
-) : ListShibas.ShibasRepository {
+) : ListShibas.Repository {
 
     override suspend fun listShibas(): Urls {
         return webApi.listUrls()

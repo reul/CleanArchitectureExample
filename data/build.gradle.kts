@@ -37,7 +37,6 @@ dependencies {
     api(project(":domain"))
 
     implementation(libs.androidx.core.ktx)
-    implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.retrofit)
