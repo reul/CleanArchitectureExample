@@ -48,7 +48,7 @@ Feel free to explore and modify the code to understand how Clean Architecture is
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [Unlicense](LICENSE).
 
 ## Acknowledgments
 
