@@ -17,13 +17,13 @@ fun AsyncImageCell(url: String) {
     Card(
         Modifier
             .padding(Spacing.quarter)
-            .height(150.dp)
+            .height(150.dp),
     ) {
         AsyncImage(
             modifier = Modifier.fillMaxHeight(),
             model = url,
             contentDescription = null,
-            contentScale = ContentScale.Crop
+            contentScale = ContentScale.Crop,
         )
     }
 }
@@ -32,6 +32,6 @@ fun AsyncImageCell(url: String) {
 @Composable
 fun AsyncImageCellPreview() {
     AsyncImageCell(
-        "https://cdn.shibe.online/shibes/36083b6b1f07865085681235e4b4b174f60b7db1.jpg"
+        "https://cataas.com/cat/KjXFF7AvE2wrtEcs?type=square&position=center",
     )
 }

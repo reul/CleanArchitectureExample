@@ -9,22 +9,24 @@ import coil.util.DebugLogger
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
-class App : Application(), ImageLoaderFactory {
-    override fun newImageLoader(): ImageLoader {
-        return ImageLoader.Builder(this)
+class App :
+    Application(),
+    ImageLoaderFactory {
+    override fun newImageLoader(): ImageLoader =
+        ImageLoader
+            .Builder(this)
             .memoryCache {
-                MemoryCache.Builder(this)
+                MemoryCache
+                    .Builder(this)
                     .maxSizePercent(0.20)
                     .build()
-            }
-            .diskCache {
-                DiskCache.Builder()
+            }.diskCache {
+                DiskCache
+                    .Builder()
                     .directory(cacheDir.resolve("image_cache"))
                     .maxSizeBytes(5 * 1024 * 1024)
                     .build()
-            }
-            .logger(DebugLogger())
+            }.logger(DebugLogger())
             .respectCacheHeaders(false)
             .build()
-    }
 }

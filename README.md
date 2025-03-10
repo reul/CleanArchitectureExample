@@ -8,7 +8,7 @@ This is an Android project showcasing the implementation of Clean Architecture i
 Contains the business logic and entities of the application. It defines the use cases and interfaces that will be implemented in the other modules.
 
 ### 2. Data Module
-Implements the data sources and repositories defined in the domain module. This module is responsible for interacting with external data, such as fetching images from the Shibe.online API.
+Implements the data sources and repositories defined in the domain module. This module is responsible for interacting with external data, such as fetching images from the Cataas API.
 
 ## Libraries and Dependencies
 
@@ -21,7 +21,7 @@ Implements the data sources and repositories defined in the domain module. This 
 
 ## External API
 
-The sample project fetches images from the [Shibe.online API](https://shibe.online/api/). The images are displayed in a grid using Jetpack Compose.
+The sample project fetches images from the https://cataas.com/doc.html. The images are displayed in a grid using Jetpack Compose.
 
 ## Screenshot
 
@@ -52,7 +52,7 @@ This project is licensed under the [Unlicense](LICENSE).
 
 ## Acknowledgments
 
-Special thanks to the [Shibe.online](https://shibe.online/) API for providing adorable images of Shiba Inu dogs.
+Special thanks to the https://cataas.com/doc.html API for providing adorable images of Cats.
 
 ---
 

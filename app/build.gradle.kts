@@ -7,12 +7,12 @@ plugins {
 
 android {
     namespace = "space.reul.cleanarchitectureexample.app"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "space.reul.cleanarchitectureexample.app"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -27,7 +27,7 @@ android {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
         }
     }
@@ -65,6 +65,7 @@ dependencies {
     implementation(libs.androidx.compose.material3)
     implementation(libs.coil.compose)
     implementation(libs.hilt.android)
+
     kapt(libs.hilt.android.compiler)
 
     testImplementation(libs.junit)

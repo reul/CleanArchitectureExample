@@ -5,18 +5,27 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
+import space.reul.cleanarchitectureexample.app.ui.shared.Dimensions
 import space.reul.cleanarchitectureexample.app.ui.theme.CleanArchitectureExampleTheme
+import space.reul.cleanarchitectureexample.domain.model.Cat
 
 @Composable
-fun ImageGrid(urls: List<String>, modifier: Modifier = Modifier) {
-    LazyVerticalGrid(
-        modifier = modifier,
-        columns = GridCells.Adaptive(150.dp)
-    ) {
-        urls.forEach { url ->
-            item { AsyncImageCell(url) }
-        }
+fun ImageGrid(
+    cats: List<Cat>,
+    modifier: Modifier = Modifier,
+) {
+    val urls = cats.map { it.url }
+    ImageGridContents(urls = urls, modifier = modifier)
+}
+
+@Composable
+private fun ImageGridContents(
+    urls: List<String>,
+    modifier: Modifier = Modifier,
+) {
+    val columns = GridCells.Adaptive(Dimensions.gridCellSize)
+    LazyVerticalGrid(modifier = modifier, columns = columns) {
+        urls.forEach { url -> item { AsyncImageCell(url) } }
     }
 }
 
@@ -24,6 +33,10 @@ fun ImageGrid(urls: List<String>, modifier: Modifier = Modifier) {
 @Composable
 fun ImageGridPreview() {
     CleanArchitectureExampleTheme {
-        ImageGrid(listOf("https://cdn.shibe.online/shibes/36083b6b1f07865085681235e4b4b174f60b7db1.jpg"))
+        ImageGridContents(
+            listOf(
+                "https://cataas.com/cat/KjXFF7AvE2wrtEcs?type=square&position=center",
+            ),
+        )
     }
 }
