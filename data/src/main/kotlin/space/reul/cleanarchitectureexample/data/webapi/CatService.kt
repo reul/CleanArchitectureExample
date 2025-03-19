@@ -50,9 +50,10 @@ class CatService {
     }
 
     private interface WebApi {
-        @GET("cats?limit=10&skip=0")
+        @GET("cats")
         suspend fun listUrls(
-            @Query("count") count: Int = 18,
+            @Query("limit") count: Int = 18,
+            @Query("skip") skip: Int = 0
         ): Response<Cats>
     }
 }

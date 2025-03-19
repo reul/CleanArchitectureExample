@@ -6,8 +6,8 @@ import kotlin.test.assertEquals
 class UrlsTest {
     @Test
     fun `test Urls is a type alias to ArrayList`() {
-        val expected = arrayListOf<String>()
-        val actual = Cat()
+        val expected = arrayListOf<Cat>()
+        val actual = Cats()
 
         assertEquals(expected, actual)
         assertEquals(expected::class, actual::class)
